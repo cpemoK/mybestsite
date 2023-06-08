@@ -1,0 +1,226 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<header>
+    <div class="Logo">
+        <a href="/">
+            <img src="{% static 'imgs/Mosmetro_logo_M.svg' %}" width="60" height="60px"/>
+        </a>
+    </div>
+    <nav>
+        <ul class="topmenu">
+            <li><a href="/" class="active">О себе</a></li>
+            <li><a href="/hobbies" class="active">Навыки</a></li>
+            <li><a href="/contacts" class="active">Контакты</a></li>
+        </ul>
+    </nav>
+    <div class="Tel" style="font-family: 'Open Sans', sans-serif">
+        <a href="Tel:89379984525">+7 (937) 998 45 25</a>
+
+    </div>
+</header>
+{% block container %}
+{% endblock container %}
+<footer>
+    <nav>
+
+    </nav>
+</footer>
+</html>
+
+
+<style>
+    a {
+        text-decoration: none;
+        text-decoration-color: black;
+    }
+    p {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 5px;
+        text-align: justify;
+
+    }
+
+    footer {
+        position: absolute;
+        margin: 30px 0px;
+        width: 100%;
+        height: 70px;
+        background-color: #696969;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #FFFFFF;
+        margin: 0px;
+        font-family: 'Open Sans', sans-serif;
+        height: 100%;
+    }
+
+    nav {
+        background: #413F3C;
+        position: absolute;
+        left: 38%;
+        text-align: center;
+        display: inline;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    nav ul:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    nav a {
+        text-decoration: none;
+        display: block;
+        transition: .3s linear;
+    }
+
+    .topmenu > li {
+        float: left;
+        position: relative;
+        border-left: 1px solid black;
+    }
+
+    .topmenu > li:first-child {
+        border-left: 0;
+    }
+
+    .topmenu > li > a {
+        padding: 20px 30px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #FEFDFD;
+        letter-spacing: 2px;
+    }
+
+    .topmenu > li > a.active,
+    .submenu a:hover {
+        color: #ddbe86;
+    }
+
+    .topmenu .fa,
+    .submenu .fa {
+        margin-left: 5px;
+        color: inherit;
+    }
+
+    .submenu {
+        position: absolute;
+        z-index: 5;
+        min-width: 200px;
+        background: white;
+        border-top: 1px solid #CBCBCC;
+        border-left: 1px solid #CBCBCC;
+        border-right: 1px solid #CBCBCC;
+        visibility: hidden;
+        opacity: 0;
+        transform-origin: 0% 0%;
+        transform: rotateX(-90deg);
+        transition: .3s linear;
+    }
+
+    .submenu li {
+        position: relative;
+    }
+
+    .submenu li a {
+        color: #282828;
+        padding: 10px 20px;
+        font-size: 13px;
+        border-bottom: 1px solid #CBCBCC;
+    }
+
+    .submenu .submenu {
+        position: absolute;
+        left: 100%;
+        top: -1px;
+        transition: .3s linear;
+    }
+
+    nav li:hover > .submenu {
+        transform: rotateX(0deg);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    body.content {
+        background-color: #ddbe86;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        background-color: #696969;
+        padding: 20px 50px;
+        align-items: center;
+    }
+
+    .Menu {
+        flex-grow: 1;
+    }
+
+    .Menu ul {
+        background: gray;
+        list-style: none;
+        width: 100%;
+    }
+
+    .Menu li {
+        float: left;
+        position: relative;
+        width: auto;
+    }
+
+    .Menu a {
+        background: #A9A9A9;
+        color: #FFFFFF;
+        display: flex;
+        font: bold 12px/20px sans-serif;
+        padding: 10px 60px;
+        text-align: center;
+        text-decoration: none;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+
+    .Menu li:hover a {
+        background: #000000;
+    }
+
+    .Tel {
+        font-family: monospace;
+        font-stretch: expanded;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .Tel a {
+        color: #ddbe86;;
+        text-decoration: none;
+    }
+
+</style>
